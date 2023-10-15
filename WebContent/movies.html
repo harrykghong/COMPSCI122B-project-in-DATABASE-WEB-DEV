@@ -1,0 +1,112 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load index.js to populate the data into empty elements.
+    -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Results</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1>Fabflix</h1>
+        <a class="navBar" href="index.html">Home</a>
+        <a class="navBar" href="topTwenty.html">Top 20</a>
+        <a class="navBar" href="movies.html">Result</a>
+        <a class="navBar" href="cart.html">Checkout</a>
+        <form id="search_form" action="movies.html" method="get">
+            <input name="title" placeholder="Title" type="text">
+            <input name="year" placeholder="Year" type="text">
+            <input name="dir" placeholder="Director" type="text">
+            <input name="star" placeholder="Star" type="text">
+            <input type="submit" value="Search">
+        </form>
+    </nav>
+</header>
+<h2>Results</h2>
+<script type="text/javascript">
+    window.onload=function ()
+    {document.getElementById('pageurl').value=window.location.href;}
+</script>
+
+<form name="pageSize" method="get" class="sortBar">
+    <b>Movies Per Page: </b>
+    <select name="pageNum" id="pageNum">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <b>Sorted by: </b>
+    <select name="sort" id="sort">
+        <option value="tara">Title Asc, Rating Asc</option>
+        <option value="tard">Title Asc, Rating Desc</option>
+        <option value="tdra">Title Desc, Rating Asc</option>
+        <option value="tdrd">Title Desc, Rating Desc</option>
+        <option value="rata">Rating Asc, Title Asc</option>
+        <option value="ratd">Rating Asc, Title Desc</option>
+        <option value="rdta">Rating Desc, Title Asc</option>
+        <option value="rdtd">Rating Desc, Title Desc</option>
+    </select>
+    <input type="submit" value="Update">
+    <p id="current_page_num"></p>
+</form>
+
+<!-- Id "star_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+<div class="dataTable">
+    <table id=star_table class="table table-striped">
+        <!-- Create a table header -->
+        <thead>
+        <tr>
+            <!-- Titles of each column-->
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Genres</th>
+            <th>Stars</th>
+
+            <th>Rating</th>
+            <th>Cart</th>
+        </tr>
+        </thead>
+        <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+        <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+        <tbody id=star_table_body></tbody>
+    </table>
+</div>
+
+<form class="sortBar" method="get" action="" name="button_set">
+    <button name="changePage" value="previous" id="pre">Previous Page</button>
+    <button name="changePage" value="next" id="next">Next Page</button>
+</form>
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Load our own JS file -->
+<!-- The path is relative to index.html, since these two files are in the same directory -->
+<!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+     otherwise the url is relative to the root path-->
+<script src="movies.js"></script>
+</body>
+
+
+</html>

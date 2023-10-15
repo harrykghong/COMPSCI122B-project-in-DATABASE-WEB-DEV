@@ -1,0 +1,59 @@
+<!-- This page will be redirected from any url if you are not logged in -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Checkout Page</title>
+</head>
+<body>
+<header>
+  <nav>
+    <h1>Payment Information</h1>
+  </nav>
+  <nav>
+    <a class="navBar" href="index.html">Home</a>
+    <a class="navBar" href="topTwenty.html">Top 20</a>
+    <a class="navBar" href="movies.html">Result</a>
+    <a class="navBar" href="cart.html">Checkout</a>
+  </nav>
+</header>
+
+<!-- Set the method to POST to avoid showing the username/password in the URL
+     The default action is disabled to allow your own implementation. -->
+<div class="payment_form">
+  <form id="payment_form" method="post" action="#">
+    <label>
+      <input name="card_number" placeholder="Card Number" type="text">
+    </label>
+    <br>
+    <label>
+      <input name="first_name" placeholder="First Name" type="text">
+    </label>
+    <br>
+    <label>
+      <input name="last_name" placeholder="Last Name" type="text">
+    </label>
+    <br>
+    <label>
+      <input type="date" id="date-picker" name="date-picker">
+    </label>
+    <br>
+    <input type="submit" value="Place Order">
+  </form>
+
+  <div id="checkout_error_message"></div>
+</div>
+
+
+<!-- include jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- include our own JS file -->
+<script src="./checkout.js"></script>
+
+</body>
+</html>

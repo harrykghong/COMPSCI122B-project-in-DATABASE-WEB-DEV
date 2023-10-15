@@ -1,0 +1,131 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load index.js to populate the data into empty elements.
+    -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <title>Main Page</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Fabflix</h1>
+            <a class="navBar" href="index.html">Home</a>
+            <a class="navBar" href="topTwenty.html">Top 20</a>
+            <a class="navBar" href="movies.html">Result</a>
+            <a class="navBar" href="cart.html">Checkout</a>
+            <form id="search_form" action="movies.html" method="get">
+                <input name="title" placeholder="Title" type="text">
+                <input name="year" placeholder="Year" type="text">
+                <input name="dir" placeholder="Director" type="text">
+                <input name="star" placeholder="Star" type="text">
+                <input type="submit" value="Search">
+            </form>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Full-text search with auto completion</h2>
+        <form id="fullSearchForm" action="movies.html" method="get">
+            <input id="fullSearch" name="fullTitle" placeholder="Title" type="text" class="autocomplete-searchbox form-control" >
+            <input type="submit" value="Search">
+        </form>
+        <h2>Browsing by movie genres</h2>
+
+        <!-- Id "star_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+        <table>
+            <tbody id=genre_table_body></tbody>
+        </table>
+        <h2>Browsing by movie title</h2>
+
+        <table>
+            <tr>
+                <td><a href="movies.html?prefix=a">A</a></td>
+                <td><a href="movies.html?prefix=b">B</a></td>
+                <td><a href="movies.html?prefix=c">C</a></td>
+                <td><a href="movies.html?prefix=d">D</a></td>
+                <td><a href="movies.html?prefix=e">E</a></td>
+                <td><a href="movies.html?prefix=f">F</a></td>
+                <td><a href="movies.html?prefix=g">G</a></td>
+                <td><a href="movies.html?prefix=h">H</a></td>
+                <td><a href="movies.html?prefix=i">I</a></td>
+                <td><a href="movies.html?prefix=j">J</a></td>
+                <td><a href="movies.html?prefix=k">K</a></td>
+                <td><a href="movies.html?prefix=l">L</a></td>
+                <td><a href="movies.html?prefix=m">M</a></td>
+            <tr>
+                <td><a href="movies.html?prefix=n">N</a></td>
+                <td><a href="movies.html?prefix=o">O</a></td>
+                <td><a href="movies.html?prefix=p">P</a></td>
+                <td><a href="movies.html?prefix=q">Q</a></td>
+                <td><a href="movies.html?prefix=r">R</a></td>
+                <td><a href="movies.html?prefix=s">S</a></td>
+                <td><a href="movies.html?prefix=y">T</a></td>
+                <td><a href="movies.html?prefix=u">U</a></td>
+                <td><a href="movies.html?prefix=v">V</a></td>
+                <td><a href="movies.html?prefix=w">W</a></td>
+                <td><a href="movies.html?prefix=x">X</a></td>
+                <td><a href="movies.html?prefix=y">Y</a></td>
+                <td><a href="movies.html?prefix=z">Z</a></td>
+            </tr>
+            <tr>
+                <td><a href="movies.html?prefix=0">0</a></td>
+                <td><a href="movies.html?prefix=1">1</a></td>
+                <td><a href="movies.html?prefix=2">2</a></td>
+                <td><a href="movies.html?prefix=3">3</a></td>
+                <td><a href="movies.html?prefix=4">4</a></td>
+                <td><a href="movies.html?prefix=5">5</a></td>
+                <td><a href="movies.html?prefix=6">6</a></td>
+                <td><a href="movies.html?prefix=7">7</a></td>
+                <td><a href="movies.html?prefix=8">8</a></td>
+                <td><a href="movies.html?prefix=9">9</a></td>
+                <td><a href="movies.html?prefix=*">*</a></td>
+            </tr>
+        </table>
+
+        <!-- Load jQuery and Bootstrap JS -->
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- Load our own JS file -->
+        <!-- The path is relative to index.html, since these two files are in the same directory -->
+        <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+             otherwise the url is relative to the root path-->
+        <script src="index.js"></script>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,429 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load index.js to populate the data into empty elements.
+    -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Main Page</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Fabflix</h1>
+            <a class="navBar" href="index.html">Home</a>
+            <a class="navBar" href="addstar.html">Add a Star</a>
+            <a class="navBar" href="addmovie.html">Add a Movie</a>
+        </nav>
+    </header>
+    <h1>Metadata</h1>
+    <div class="container">
+        <h2>creditcards</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+                    <tr>
+                        <th>id</th>
+                        <th>VARCHAR</th>
+                    </tr>
+                    <tr>
+                        <th>firstname</th>
+                        <th>VARCHAR</th>
+                    </tr>
+                    <tr>
+                        <th>lastname</th>
+                        <th>VARCHAR</th>
+                    </tr>
+                    <tr>
+                        <th>expiration</th>
+                        <th>DATE</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>customers</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+                <tr>
+                    <th>id</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>firstname</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>lastname</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>ccId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>address</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>email</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>password</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>employees</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>email</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>password</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>fullname</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>genre</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>id</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>name</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>genre_in_movies</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>genreId</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>movieId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>movies</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>id</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>title</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>year</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>director</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>ratings</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>movieId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>rating</th>
+                    <th>FLOAT</th>
+                </tr>
+                <tr>
+                    <th>numVotes</th>
+                    <th>INT</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>sales</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>id</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>customerId</th>
+                    <th>INT</th>
+                </tr>
+                <tr>
+                    <th>movieId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>saleDate</th>
+                    <th>DATE</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>stars</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>id</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>name</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>birthYear</th>
+                    <th>INT</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>stars_in_movies</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>starId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>movieId</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>sys_config</h2>
+        <div class="dataTable">
+            <table id=star_table class="table table-striped">
+                <!-- Create a table header -->
+                <thead>
+                <tr>
+                    <!-- Titles of each column-->
+                    <th>Attibutes</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+                <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+                <tbody>
+
+                <tr>
+                    <th>variable</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>value</th>
+                    <th>VARCHAR</th>
+                </tr>
+                <tr>
+                    <th>set_time</th>
+                    <th>TIMESTAMP</th>
+                </tr>
+                <tr>
+                    <th>set_by</th>
+                    <th>VARCHAR</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+        <!-- Load jQuery and Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- Load our own JS file -->
+        <!-- The path is relative to index.html, since these two files are in the same directory -->
+        <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+             otherwise the url is relative to the root path-->
+        <script src="index.js"></script>
+    </div>
+</body>
+
+
+</html>
